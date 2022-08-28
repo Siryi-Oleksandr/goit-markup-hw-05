@@ -75,7 +75,7 @@
       -->
       <section class="hero">
         <h1 class="hero-title">Ефективні рішення для вашого бізнесу</h1>
-        <button type="button" class="button">Замовити послугу</button>
+        <button type="button" class="button" data-modal-open>Замовити послугу</button>
       </section>
 
       <!--
@@ -139,28 +139,37 @@
           <h2>Чим ми займаємося</h2>
           <ul class="work-list">
             <li class="item">
-              <img
-                src="./images/box-1.jpg"
-                alt="Жінка користується телефоном та ноутбуком"
-                width="370"
-                height="294"
-              />
+              <div class="work-thumb">
+                <img
+                  src="./images/box-1.jpg"
+                  alt="Жінка користується телефоном та ноутбуком"
+                  width="370"
+                  height="294"
+                />
+                <p>Десктопні додатки</p>
+              </div>
             </li>
             <li class="item">
-              <img
-                src="./images/box-2.jpg"
-                alt="Дизайнер використовує планшет"
-                width="370"
-                height="294"
-              />
+              <div class="work-thumb">
+                <img
+                  src="./images/box-2.jpg"
+                  alt="Дизайнер використовує планшет"
+                  width="370"
+                  height="294"
+                />
+                <p>Мобільні додатки</p>
+              </div>
             </li>
             <li class="item">
-              <img
-                src="./images/box-3.jpg"
-                alt="Чоловік займається програмуванням"
-                width="370"
-                height="294"
-              />
+              <div class="work-thumb">
+                <img
+                  src="./images/box-3.jpg"
+                  alt="Чоловік займається програмуванням"
+                  width="370"
+                  height="294"
+                />
+                <p>Дизайнерські рішення</p>
+              </div>
             </li>
           </ul>
         </div>
@@ -548,5 +557,24 @@
         </div>
       </div>
     </footer>
+
+    <!--
+      |============================
+      | Модальне вікно
+      |============================
+    -->
+    <div class="backdrop is-hidden" data-modal>
+      <div class="modal">
+        <button type="button" data-modal-close>
+          <svg class="modal-close" width="11" height="11">
+            <use href="./images/sprite-icons.svg#icon-cross"></use>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Підключаємо модальне вікно -->
+
+    <script src="./js/modal.js"></script>
   </body>
 </html>
