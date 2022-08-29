@@ -817,13 +817,16 @@ footer .logo-studio {
   border-radius: 50%;
 
   background-color: var(--white-bg-color);
-  transition: background-color 250ms var(--cubic-bezier), transform 250ms var(--cubic-bezier);
+  transition: color 250ms var(--cubic-bezier), scale 250ms var(--cubic-bezier),
+    transform 250ms var(--cubic-bezier);
+
+  color: black;
 }
 
 .modal button:hover,
 .modal button:focus {
-  background-color: rgba(33, 150, 243, 0.5);
-  transform: rotate(180deg);
+  transform: rotate(180deg) scale(1.15);
+  color: var(--accent-color);
 }
 
 .modal-close {
