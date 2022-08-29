@@ -18,6 +18,8 @@
   --shadow-portfolio: 0px 4px 4px rgba(0, 0, 0, 0.25);
   --shadow-studio: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
     0px 2px 1px rgba(0, 0, 0, 0.2);
+  /* OTHER */
+  --cubic-bezier: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 body {
@@ -117,6 +119,8 @@ img {
   padding-bottom: 32px;
 
   color: var(--title-text-color);
+
+  transition: color 250ms var(--cubic-bezier);
 }
 .nav a:hover,
 .nav a:focus {
@@ -128,6 +132,8 @@ img {
   padding-bottom: 32px;
 
   color: var(--primary-text-color);
+
+  transition: color 250ms var(--cubic-bezier);
 }
 .contacts a:hover,
 .contacts a:focus {
@@ -199,40 +205,10 @@ img {
 
   background-color: var(--accent-bg-color);
 }
-/**
-  |============================
-*/
-
-/* Додаємо іконки
-
-.header .mail::before,
-.header .tel::before {
-  content: '';
-  display: inline-block;
-  width: 16px;
-  height: 16px;
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-position: center;
-  margin-right: 10px;
-}
-
-.tel::before {
-  background-image: url('../images/icons/smartphone.svg');
-}
-.mail::before {
-  background-image: url(../images/icons/envelope.svg);
-} */
 
 /**
   |============================
-  | Основний контент сторінки Студія
-  |============================
-*/
-
-/**
-  |============================
-  | Герой
+  | Герой сторінка Студія
   |============================
 */
 
@@ -454,12 +430,16 @@ img {
 
   color: var(--social-primary-color);
   fill: currentColor;
+
+  transition: background-color 250ms var(--cubic-bezier), fill 250ms var(--cubic-bezier),
+    transform 250ms var(--cubic-bezier);
 }
 
 .section-team .social-link:hover,
 .section-team .social-link:focus {
   background-color: var(--accent-bg-color);
   fill: var(--white-text-color);
+  transform: rotate(360deg);
   cursor: pointer;
 }
 
@@ -507,6 +487,9 @@ img {
 
   color: var(--social-primary-color);
   fill: currentColor;
+
+  transition: color 250ms var(--cubic-bezier), fill 250ms var(--cubic-bezier),
+    border-color 250ms var(--cubic-bezier);
 }
 
 .section-clients .link:hover,
@@ -547,6 +530,8 @@ footer .logo-studio {
   font-style: normal;
   font-size: 14px;
   line-height: 1.71;
+
+  transition: color 250ms var(--cubic-bezier);
 }
 
 .footer-address a:hover,
@@ -605,12 +590,15 @@ footer .logo-studio {
   background-color: var(--social-bg-color);
 
   border-radius: 50%;
+
+  transition: background-color 250ms var(--cubic-bezier), transform 250ms var(--cubic-bezier);
 }
 
 .social .link:hover,
 .social .link:focus {
   background-color: var(--accent-bg-color);
   cursor: pointer;
+  transform: rotate(360deg);
 }
 
 /**
@@ -637,6 +625,9 @@ footer .logo-studio {
   font-size: 16px;
   line-height: 1.62;
   letter-spacing: inherit;
+
+  transition: color 250ms var(--cubic-bezier), background-color 250ms var(--cubic-bezier),
+    box-shadow 250ms var(--cubic-bezier);
 }
 
 .filters .button:hover,
@@ -655,8 +646,14 @@ footer .logo-studio {
   margin-bottom: 50px;
 }
 
-.project-list > li {
+.project-list > .list-item {
   width: 370px;
+
+  transition: box-shadow 250ms var(--cubic-bezier);
+}
+
+.project-list > .list-item:hover {
+  box-shadow: var(--shadow-portfolio);
 }
 
 .section-projects h2 {
@@ -686,10 +683,6 @@ footer .logo-studio {
   border-left: 1px solid #ececec;
   border-right: 1px solid #ececec;
   border-bottom: 1px solid #ececec;
-}
-
-.project-list > .list-item:hover {
-  box-shadow: var(--shadow-portfolio);
 }
 
 /* FLEX FILTERS */
@@ -741,7 +734,7 @@ footer .logo-studio {
   background-color: rgba(33, 150, 243, 0.9);
 
   transform: translatey(100%);
-  transition: transform 250ms ease;
+  transition: transform 250ms var(--cubic-bezier);
 }
 
 .project-list > .list-item:hover .overlay {
@@ -779,19 +772,34 @@ footer .logo-studio {
   height: 100%;
 
   background-color: rgba(47, 48, 58, 0.6);
+
+  opacity: 1;
+  transition: opacity 250ms var(--cubic-bezier);
+}
+
+.backdrop.is-hidden {
+  opacity: 0;
 }
 
 .modal {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
 
   width: 528px;
   height: 581px;
   border-radius: 4px;
 
   background-color: var(--white-bg-color);
+
+  transform: translate(-50%, -50%) scale(1);
+  opacity: 1;
+  transition: transform 250ms var(--cubic-bezier), opacity 250ms var(--cubic-bezier);
+}
+
+.backdrop.is-hidden .modal {
+  transform: translate(-50%, -50%) scale(0.75);
+  opacity: 0;
 }
 
 .modal button {
@@ -809,7 +817,13 @@ footer .logo-studio {
   border-radius: 50%;
 
   background-color: var(--white-bg-color);
-  /* fill: var(--white-text-color); */
+  transition: background-color 250ms var(--cubic-bezier), transform 250ms var(--cubic-bezier);
+}
+
+.modal button:hover,
+.modal button:focus {
+  background-color: rgba(33, 150, 243, 0.5);
+  transform: rotate(180deg);
 }
 
 .modal-close {
