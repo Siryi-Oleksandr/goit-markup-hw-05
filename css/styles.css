@@ -133,7 +133,7 @@ img {
 
   color: var(--primary-text-color);
 
-  transition: color 250ms var(--cubic-bezier);
+  transition: color 250ms var(--cubic-bezier), fill 250ms var(--cubic-bezier);
 }
 .contacts a:hover,
 .contacts a:focus {
@@ -489,7 +489,7 @@ img {
   fill: currentColor;
 
   transition: color 250ms var(--cubic-bezier), fill 250ms var(--cubic-bezier),
-    border-color 250ms var(--cubic-bezier);
+    border-color 250ms var(--cubic-bezier), transform 250ms var(--cubic-bezier);
 }
 
 .section-clients .link:hover,
@@ -497,6 +497,7 @@ img {
   color: var(--accent-color);
   fill: var(--accent-color);
   border-color: var(--accent-color);
+  transform: scale(1.15);
 }
 
 /**
@@ -648,12 +649,6 @@ footer .logo-studio {
 
 .project-list > .list-item {
   width: 370px;
-
-  transition: box-shadow 250ms var(--cubic-bezier);
-}
-
-.project-list > .list-item:hover {
-  box-shadow: var(--shadow-portfolio);
 }
 
 .section-projects h2 {
@@ -737,7 +732,18 @@ footer .logo-studio {
   transition: transform 250ms var(--cubic-bezier);
 }
 
-.project-list > .list-item:hover .overlay {
+.project-list .project-link {
+  display: block;
+  transition: box-shadow 250ms var(--cubic-bezier);
+}
+
+.project-list .project-link:hover,
+.project-list .project-link:focus {
+  box-shadow: var(--shadow-portfolio);
+}
+
+.project-list .project-link:hover .overlay,
+.project-list .project-link:focus .overlay {
   transform: translatey(0);
 }
 
@@ -774,11 +780,14 @@ footer .logo-studio {
   background-color: rgba(47, 48, 58, 0.6);
 
   opacity: 1;
-  transition: opacity 250ms var(--cubic-bezier);
+  visibility: visible;
+  transition: opacity 250ms var(--cubic-bezier), visibility 250ms var(--cubic-bezier);
 }
 
 .backdrop.is-hidden {
   opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
 }
 
 .modal {
@@ -831,10 +840,4 @@ footer .logo-studio {
 
 .modal-close {
   fill: currentColor;
-}
-
-.is-hidden {
-  opacity: 0;
-  pointer-events: none;
-  visibility: hidden;
 }
